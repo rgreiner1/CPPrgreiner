@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 14:38:13 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/05 12:15:09 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/08 16:35:12 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/08 16:36:32 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef WRONGANIMAL_H
+# define WRONGANIMAL_H
 #include "iostream"
 #include "string"
-#include "cstring"
 #include "sstream"
 #include "cstdlib"
+#include "fstream"
 
-class Zombie
+class WrongAnimal
 {
-private:
-    std::string name;
+protected:
+    std::string type;
 public:
-    void    announce(void);
-    Zombie();
-    Zombie(std::string name);
-    ~Zombie();
+    WrongAnimal();
+    ~WrongAnimal();
+    WrongAnimal(const WrongAnimal&);
+    WrongAnimal &operator=(const WrongAnimal&src);
+    std::string getType(void) const;
+    void    makeSound(void) const;
+};
 
-}; 
-   Zombie* zombieHorde( int N, std::string name );
 #endif

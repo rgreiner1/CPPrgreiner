@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 14:38:13 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/05 12:15:09 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/03/29 14:39:41 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/02 14:33:50 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef FIXED_H
+# define FIXED_H
 #include "iostream"
 #include "string"
-#include "cstring"
 #include "sstream"
 #include "cstdlib"
+#include "fstream"
+#include "cmath"
 
-class Zombie
+class Fixed
 {
 private:
-    std::string name;
+	int RawBits;
+	static int const Raw = 8;
 public:
-    void    announce(void);
-    Zombie();
-    Zombie(std::string name);
-    ~Zombie();
+	Fixed();
+	Fixed(const int src);
+	Fixed(const float src);
+	Fixed(const Fixed&);
+	~Fixed();
+	Fixed &operator=(const Fixed&src);
+	int getRawBits( void ) const;
+	void setRawBits( int const raw );
+	float toFloat( void ) const;
+	int toInt( void ) const;
+};
 
-}; 
-   Zombie* zombieHorde( int N, std::string name );
+std::ostream& operator<< (std::ostream& out, Fixed const& rhs);
+
 #endif

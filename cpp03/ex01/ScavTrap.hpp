@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 14:38:13 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/05 12:15:09 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/04 14:56:44 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/08 14:04:59 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef SCAVTRAP_H
+# define SCAVTRAP_H
 #include "iostream"
 #include "string"
-#include "cstring"
 #include "sstream"
 #include "cstdlib"
+#include "fstream"
+#include "ClapTrap.hpp"
 
-class Zombie
+class ScavTrap : public ClapTrap
 {
 private:
-    std::string name;
 public:
-    void    announce(void);
-    Zombie();
-    Zombie(std::string name);
-    ~Zombie();
+    ScavTrap();
+    ScavTrap(std::string name);
+    ScavTrap(const ScavTrap&);
+    ~ScavTrap();
+    ScavTrap	&operator=(const ScavTrap &src);
+    void    attack(const std::string& target);
+    void    takeDamage(unsigned int amount);
+    void    beRepaired(unsigned int amount);
+    void    guardGate();
+};
 
-}; 
-   Zombie* zombieHorde( int N, std::string name );
 #endif

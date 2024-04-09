@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 14:47:48 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/03/22 12:18:47 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/09 15:16:38 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/09 15:53:36 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Zombie.hpp"
+#include"Amateria.hpp"
 
-Zombie* newZombie( std::string name ){
+MateriaSource::MateriaSource(){
+    std::cout << "Constructor Called" << std::endl; 
+}
 
-	Zombie *zombie = new Zombie(name);
-	return (zombie);
+MateriaSource::~MateriaSource(){
+    std::cout << "Destructor Called" << std::endl; 
+}
+
+void    MateriaSource::learnMateria(AMateria*){
+    
+}
+
+AMateria* MateriaSource::createMateria(std::string const & type){
+    
 }

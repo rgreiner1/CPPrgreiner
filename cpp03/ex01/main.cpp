@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:26:27 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/08 16:09:17 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/04 13:49:45 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/08 13:41:12 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"HumanA.hpp"
-#include "Weapon.hpp"
+#include"ClapTrap.hpp"
+#include"ScavTrap.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) {
-    std::cout << "Constructor called" << std::endl;
-    return ;
-}
-
-HumanA::~HumanA(void){
-    std::cout << "Destructor called" << std::endl;
-    return ;
-}
-
-void    HumanA::attack(){
-    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
+int main(){
+    ScavTrap Scav("Hello 2.0");
+    ClapTrap Clap("Hello");
+    Scav.attack("Enemy 1");
+    Clap.attack("Enemy 1");
+    Scav.takeDamage(50);
+    Clap.takeDamage(50);
+    std::cout << Scav.getHitPoints() << std::endl;
+    std::cout << Clap.getHitPoints() << std::endl;
+    Scav.guardGate();
+    //Clap.guardGate();
 }

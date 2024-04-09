@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:26:27 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/08 16:09:17 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/09 14:33:54 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/09 16:11:58 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"HumanA.hpp"
-#include "Weapon.hpp"
+#include "Amateria.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) {
-    std::cout << "Constructor called" << std::endl;
-    return ;
-}
-
-HumanA::~HumanA(void){
-    std::cout << "Destructor called" << std::endl;
-    return ;
-}
-
-void    HumanA::attack(){
-    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
-}
+class Character : public ICharacter
+{
+private:
+    std::string Name;
+public:
+    Character(/* args */);
+    ~Character();
+    Character(std::string name);
+    virtual std::string const & getName() const;
+    virtual void equip(AMateria* m);
+    virtual void unequip(int idx);
+    virtual void use(int idx, ICharacter& target);
+};

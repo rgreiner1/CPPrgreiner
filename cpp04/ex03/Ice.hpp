@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 14:48:38 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/03/22 12:18:51 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/09 12:32:51 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/09 16:24:08 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Zombie.hpp"
+#include"Amateria.hpp"
 
-void randomChump( std::string name ){
-   Zombie zombie = Zombie(name);
-   zombie.announce();
-}
+class Ice : public AMateria
+{
+private:
+
+public:
+    Ice(/* args */);
+    ~Ice();
+    virtual AMateria* clone() const;
+    void Ice::use(ICharacter& target);
+};

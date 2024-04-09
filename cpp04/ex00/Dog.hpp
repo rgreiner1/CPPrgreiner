@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:26:27 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/08 16:09:17 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/08 14:24:45 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/08 16:21:53 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"HumanA.hpp"
-#include "Weapon.hpp"
+#ifndef DOG_H
+# define DOG_H
+#include "iostream"
+#include "string"
+#include "sstream"
+#include "cstdlib"
+#include "fstream"
+#include "Animal.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) {
-    std::cout << "Constructor called" << std::endl;
-    return ;
-}
+class Dog : public Animal
+{
+private:
+   
+public:
+    Dog();
+    ~Dog();
+    Dog(const Dog&);
+    Dog &operator=(const Dog&src);
+};
 
-HumanA::~HumanA(void){
-    std::cout << "Destructor called" << std::endl;
-    return ;
-}
-
-void    HumanA::attack(){
-    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
-}
+#endif

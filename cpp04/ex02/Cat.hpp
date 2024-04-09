@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:26:27 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/08 16:09:17 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/08 14:24:41 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/09 11:39:00 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"HumanA.hpp"
-#include "Weapon.hpp"
+#ifndef CAT_H
+# define CAT_H
+#include "iostream"
+#include "string"
+#include "sstream"
+#include "cstdlib"
+#include "fstream"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) {
-    std::cout << "Constructor called" << std::endl;
-    return ;
-}
+class Cat : public AAnimal
+{
+private:
+    class Brain   *brain;
+public:
+    Cat();
+    ~Cat();
+    Cat(const Cat&);
+    Cat &operator=(const Cat&src);
+    virtual void    makeSound(void) const;
+};
 
-HumanA::~HumanA(void){
-    std::cout << "Destructor called" << std::endl;
-    return ;
-}
-
-void    HumanA::attack(){
-    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
-}
+#endif

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:26:27 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/08 16:09:17 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/09 12:28:21 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/09 15:46:53 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"HumanA.hpp"
-#include "Weapon.hpp"
+#include"Cure.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) {
+
+Cure::Cure(){
+    this->type = "cure";
     std::cout << "Constructor called" << std::endl;
-    return ;
 }
 
-HumanA::~HumanA(void){
+Cure::~Cure(){
     std::cout << "Destructor called" << std::endl;
-    return ;
 }
 
-void    HumanA::attack(){
-    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
+AMateria*  Cure::clone() const{
+    
+}
+
+void Cure::use(ICharacter& target){
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

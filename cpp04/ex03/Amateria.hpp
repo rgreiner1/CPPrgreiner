@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Amateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 14:38:13 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/05 12:15:09 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/09 11:50:14 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/09 15:17:27 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef MATERIA_H
+# define MATERIA_H
 #include "iostream"
 #include "string"
-#include "cstring"
 #include "sstream"
 #include "cstdlib"
+#include "fstream"
+#include"Ice.hpp"
+#include"Cure.hpp"
+#include"Character.hpp"
+#include"MateriaSource.hpp"
+#include"ICharacter.hpp"
+#include"IMateriaSource.hpp"
 
-class Zombie
+class AMateria
 {
-private:
-    std::string name;
+protected:
+    std::string type;
 public:
-    void    announce(void);
-    Zombie();
-    Zombie(std::string name);
-    ~Zombie();
+    AMateria();
+    AMateria(std::string const & type);
+    ~AMateria();
+    std::string const & getType() const;
+    virtual AMateria* clone() const = 0;
+    virtual void use(ICharacter& target);
+};
 
-}; 
-   Zombie* zombieHorde( int N, std::string name );
 #endif
