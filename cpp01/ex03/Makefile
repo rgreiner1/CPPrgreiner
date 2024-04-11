@@ -6,7 +6,7 @@
 #    By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/15 11:26:59 by rgreiner          #+#    #+#              #
-#    Updated: 2024/03/25 10:41:49 by rgreiner         ###   ########.fr        #
+#    Updated: 2024/04/10 14:34:52 by rgreiner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM      =   rm -f
 CFLAGS  =   -Wall -Wextra -Werror -std=c++98
 NAME	= 	weapon
 
-.c.o:
+.cpp.o:
 		c++ ${CFLAGS} -c $< -o $@
 ${NAME}:	${OBJS}
 	c++ ${CFLAGS} ${OBJS} -o ${NAME}

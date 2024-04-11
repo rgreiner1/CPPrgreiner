@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 14:33:54 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/09 16:11:58 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/10 16:17:18 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/11 10:05:47 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Amateria.hpp"
+#include"ICharacter.hpp"
 
 class Character : public ICharacter
 {
 private:
-    std::string Name;
+    std::string _Name;
+    AMateria *materia[4];
 public:
-    Character(/* args */);
+    Character();
     ~Character();
     Character(std::string name);
     virtual std::string const & getName() const;

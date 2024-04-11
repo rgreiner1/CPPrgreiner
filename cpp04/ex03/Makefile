@@ -5,26 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/09 11:47:36 by rgreiner          #+#    #+#              #
-#    Updated: 2024/04/09 15:58:20 by rgreiner         ###   ########.fr        #
+#    Created: 2024/04/10 14:16:37 by rgreiner          #+#    #+#              #
+#    Updated: 2024/04/10 17:04:47 by rgreiner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS    =	main.cpp \
-			Ameteria.cpp \
+			Amateria.cpp \
 			Cure.cpp \
 			Ice.cpp \
-			Character.cpp \
-			ICharacter.cpp \
-			IMateriaSource.cpp \
 			MateriaSource.cpp \
+			Character.cpp \
 
 OBJS    =   ${SRCS:.c=.o}
 RM      =   rm -f
 CFLAGS  =   -Wall -Wextra -Werror -std=c++98
 NAME	= 	a.out
 
-.c.o:
+.cpp.o:
 		c++ ${CFLAGS} -c $< -o $@
 ${NAME}:	${OBJS}
 	c++ ${CFLAGS} ${OBJS} -o ${NAME}

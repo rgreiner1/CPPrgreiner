@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 12:32:51 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/09 16:24:08 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/10 15:17:42 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/10 15:23:52 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 class Ice : public AMateria
 {
-private:
-
 public:
-    Ice(/* args */);
+    Ice();
     ~Ice();
     virtual AMateria* clone() const;
-    void Ice::use(ICharacter& target);
 };

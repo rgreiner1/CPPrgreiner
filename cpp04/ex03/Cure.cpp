@@ -5,27 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 12:28:21 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/09 15:46:53 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/10 15:00:49 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/11 11:19:39 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Cure.hpp"
 
-
 Cure::Cure(){
-    this->type = "cure";
-    std::cout << "Constructor called" << std::endl;
+//    std::cout << "Constructor called for a cure Materia" << std::endl;
+    this->_Type = "cure";
 }
 
 Cure::~Cure(){
-    std::cout << "Destructor called" << std::endl;
+//    std::cout << "Destructor called and destroyed a cure Materia" << std::endl;
 }
 
-AMateria*  Cure::clone() const{
-    
+AMateria* Cure::clone() const{
+    Cure *newcure = new Cure;
+    return (newcure);
 }
 
-void Cure::use(ICharacter& target){
-    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
-}

@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 14:34:40 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/09 16:11:35 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/10 15:31:26 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/11 10:06:08 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Amateria.hpp"
-
+#include"IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
 {
 private:
-    /* data */
+    AMateria *materia[4];
 public:
     MateriaSource(/* args */);
     ~MateriaSource();
