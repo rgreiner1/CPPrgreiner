@@ -6,7 +6,7 @@
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:18:05 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/11 11:16:52 by rgreiner         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:46:25 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "iostream"
 #include "string"
 #include "sstream"
-//#include "ICharacter.hpp"
-
 
 class   ICharacter;
 class AMateria
@@ -26,7 +24,7 @@ protected:
 public:
     AMateria(std::string const & type);
     AMateria();
-    ~AMateria();
+    virtual ~AMateria();
     std::string const & getType() const;
     AMateria(const AMateria& src);
     AMateria &operator=(const AMateria&src);

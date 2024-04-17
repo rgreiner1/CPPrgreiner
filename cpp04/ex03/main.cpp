@@ -6,7 +6,7 @@
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:16:57 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/11 11:28:54 by rgreiner         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:08:37 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@
     return (0);
 }*/
 
+
 int main(){
     IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    src->learnMateria(new Ice());
     
     ICharacter* me = new Character("me");
     AMateria* tmp;
@@ -41,7 +42,12 @@ int main(){
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
     me->use(1, *bob);
+    tmp = me->getMateria(1);
+    delete tmp;
     me->unequip(1);
     me->use(1, *bob);
     me->use(3, *bob);
+    delete me;
+    delete bob;
+    delete src;
 }
