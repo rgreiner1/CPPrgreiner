@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 14:56:44 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/05/01 18:50:06 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/26 10:39:46 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/26 11:02:47 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#ifndef SERIALIZER_H
+# define SERIALIZER_H
 #include "iostream"
 #include "string"
 #include "sstream"
 #include "cstdlib"
 #include "fstream"
-#include "ClapTrap.hpp"
+#include <limits>
+#include <cmath>
+#include <stdint.h>
 
-class ScavTrap : public ClapTrap
+
+struct Data;
+class Serializer
 {
 private:
+    /* data */
 public:
-    ScavTrap();
-    ScavTrap(std::string name);
-    ScavTrap(const ScavTrap&);
-    ~ScavTrap();
-    ScavTrap	&operator=(const ScavTrap &src);
-    void    attack(const std::string& target);
-    void    takeDamage(unsigned int amount);
-    void    beRepaired(unsigned int amount);
-    void    guardGate();
+    Serializer(/* args */);
+    ~Serializer();
+    uintptr_t serialize(Data* ptr);
+    Data* deserialize(uintptr_t raw);
 };
 
 #endif

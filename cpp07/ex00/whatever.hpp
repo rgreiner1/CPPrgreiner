@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 14:56:44 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/05/01 18:50:06 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/26 14:50:46 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/26 15:02:38 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#ifndef WHATEVER_H
+# define WHATEVER_H
 #include "iostream"
 #include "string"
 #include "sstream"
 #include "cstdlib"
 #include "fstream"
-#include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
-{
-private:
-public:
-    ScavTrap();
-    ScavTrap(std::string name);
-    ScavTrap(const ScavTrap&);
-    ~ScavTrap();
-    ScavTrap	&operator=(const ScavTrap &src);
-    void    attack(const std::string& target);
-    void    takeDamage(unsigned int amount);
-    void    beRepaired(unsigned int amount);
-    void    guardGate();
-};
-
+template<typename T>
+T max(T const & x, T const & y){
+    return ((x > y) ? x : y);
+}
+template <typename T>
+T min(T const & x, T const & y){
+    return ((x < y) ? x : y);
+}
+template <typename T>
+void swap(T  & x, T  & y){
+    T  tmp;
+    tmp = y;
+    y = x;
+    x = tmp;
+}
 #endif

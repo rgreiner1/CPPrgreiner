@@ -6,7 +6,7 @@
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:26:15 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/25 15:00:00 by rgreiner         ###   ########.fr       */
+/*   Updated: 2024/04/26 10:32:52 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,16 @@ void    ScalarConverter::convert(std::string toConvert){
     else if (toConvert.find(".") != toConvert.npos || checkOverflow(toConvert, "int") == 1)
     {
         j = 0;
+        if (isdigit(toConvert[0]) == 0 && toConvert[0] != '-' && toConvert[0] != '+')
+        {
+            std::cout << "Is not a valid input" << std::endl;
+            return ;
+        }
+        if (isdigit(toConvert[1]) == 0 && toConvert[1] != '.')
+        {
+            std::cout << "Is not a valid input" << std::endl;
+            return ;
+        }
         while(isdigit(toConvert[i]) || toConvert[i] == '.')
         {
             if(toConvert[i] == '.')

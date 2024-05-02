@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 14:56:44 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/05/01 18:50:06 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/04/26 11:06:33 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/04/26 12:34:28 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+
+#ifndef BASE_H
+# define BASE_H
 #include "iostream"
 #include "string"
 #include "sstream"
 #include "cstdlib"
 #include "fstream"
-#include "ClapTrap.hpp"
+#include <limits>
+#include <cmath>
+#include <stdint.h>
 
-class ScavTrap : public ClapTrap
+class Base
 {
-private:
+protected:
+
 public:
-    ScavTrap();
-    ScavTrap(std::string name);
-    ScavTrap(const ScavTrap&);
-    ~ScavTrap();
-    ScavTrap	&operator=(const ScavTrap &src);
-    void    attack(const std::string& target);
-    void    takeDamage(unsigned int amount);
-    void    beRepaired(unsigned int amount);
-    void    guardGate();
+    virtual ~Base();
 };
 
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
 #endif
