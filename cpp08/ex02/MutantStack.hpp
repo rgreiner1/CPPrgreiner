@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 16:39:27 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/05/06 16:40:16 by rgreiner         ###   ########.fr       */
+/*   Created: 2024/05/06 15:34:56 by rgreiner          #+#    #+#             */
+/*   Updated: 2024/05/06 16:25:48 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_H
-# define SPAN_H
+#ifndef MUTANTSTACK_H
+# define MUTANTSTACK_H
 #include "iostream"
 #include "string"
 #include "sstream"
@@ -22,30 +22,37 @@
 #include "iterator"
 #include "deque"
 #include "list"
+#include "stack"
 
-
-
-class Span
+template <typename T>
+class MutantStack
 {
 private:
-    std::list<int> _nbr;
-    unsigned int _size;
+    T* _content;
 public:
-    Span();
-    ~Span();
-    Span(unsigned int n);
-    void    addNumber(int nbr);
-    int shortestSpan();
-    int longestSpan();
-    void    printContent(std::ostream& out);
-    void    Spanfill(int first, int last);
-    class listIsFull : public std::exception{
-	    const char* what() const throw();
+    MutantStack(/* args */){};
+    ~MutantStack(){};
+    void push(T toAdd){
+        (void)toAdd;
     };
-    class listIsLessof2 : public std::exception{
-	    const char* what() const throw();
+    void pop(){
+        
+    };
+    bool empty() const{
+        
+    }
+    size_t top(){
+        return (0);
+    };
+    size_t size(){
+        return (1);
+    }
+    iterator begin(){
+        
+    }
+    iterator end(){
+        
     };
 };
-std::ostream& operator<< (std::ostream& out, Span & rhs);
 
 #endif

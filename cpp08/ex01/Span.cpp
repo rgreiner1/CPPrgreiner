@@ -6,7 +6,7 @@
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:40:04 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/05/02 17:54:31 by rgreiner         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:40:16 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,25 @@ int Span::shortestSpan(){
     std::list<int>::iterator end;
     std::list<int>::iterator begin;
     int ret = 0;
+    int i = 0;
     try
     {
         if (std::distance(_nbr.begin(), _nbr.end()) <= 1)
             throw listIsLessof2();
         _nbr.sort();
-        end = _nbr.end();
+        end = (--_nbr.end());
         begin = _nbr.begin();
-        while (begin != end)
+        while(i != std::distance(_nbr.begin(), _nbr.end()))
         {
-            if (ret < (*begin - *(++begin)))
+            while (*begin != *end)
             {
-                ret = ;
+                if (ret == 0 || ret > *end - *begin)
+                    ret = *end - *begin;
+                end--;
             }
+            begin++;
+            end = (--_nbr.end());
+            i++;
         }
         return (ret);
         
@@ -73,6 +79,28 @@ int Span::longestSpan(){
         std::cerr << e.what() << '\n';
         return (-1);
     }
+}
+
+int f()
+{
+    static int i;
+    return (++i);
+}
+
+void    Span::Spanfill(int first, int last){
+    (void)first;
+    (void)last;
+    try
+    {   
+      //  if (std::distance(_nbr.begin(), _nbr.end())  >= _size)
+    //     throw listIsFull();
+        std::generate(_nbr.begin(), (_nbr.()), f);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
 }
 
 Span::Span(){
