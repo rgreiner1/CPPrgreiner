@@ -18,7 +18,6 @@ int main()
 	int	i;
 	std::string userinput;
 	PhoneBook phonebook;
-	Contact contact[9];
 	i = 1;
 	while (1)
 	{
@@ -29,11 +28,11 @@ int main()
 			return (1);
 		if (userinput == "ADD")
 		{
-			phonebook.fill_info(contact, i);
+			phonebook.fill_info(i);
 			i++;
 		}
 		if (userinput == "SEARCH")
-			phonebook.print_phonebook(contact, 8);
+			phonebook.print_phonebook(8);
 	}
 	return 0;
 }

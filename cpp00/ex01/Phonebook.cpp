@@ -23,7 +23,7 @@ PhoneBook::~PhoneBook(void){
 	return ;
 }
 
-void    PhoneBook::fill_info(Contact *contact, int i){
+void    PhoneBook::fill_info(int i){
 	
 	std::string input;
 	if (i > 8)
@@ -113,7 +113,7 @@ std::string	PhoneBook::format(std::string str)
 
 }
 
-void    PhoneBook::print_phonebook(Contact *contact, int len){
+void    PhoneBook::print_phonebook(int len){
 	
 	int i;
 	i = 1;

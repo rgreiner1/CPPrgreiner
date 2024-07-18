@@ -23,12 +23,12 @@
 class PhoneBook
 {
 private:
-	/* data */
+	Contact contact[9];
 public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	void	fill_info(Contact *contact, int i);
-	void	print_phonebook(Contact *contact, int len);
+	void	fill_info(int i);
+	void	print_phonebook(int len);
 	void	print_index(Contact *contact, int len);
 	std::string	format(std::string str);
 };
