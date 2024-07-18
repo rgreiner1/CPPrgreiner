@@ -25,50 +25,56 @@ PhoneBook::~PhoneBook(void){
 
 void    PhoneBook::fill_info(Contact *contact, int i){
 	
+	std::string input;
 	if (i > 8)
 	{
 		i = i % 8;
 		if (i == 0)
 			i = 8;
-		std::cout << i;
-		contact[i].first_name.clear();
-		contact[i].last_name.clear();
-		contact[i].nickname.clear();
-		contact[i].phone_number.clear();
-		contact[i].darkest_secret.clear();
-		contact[i].cpy_first_name.clear();
-		contact[i].cpy_last_name.clear();
-		contact[i].cpy_nickname.clear();
+		contact[i].set_First_Name("");
+		contact[i].set_Last_Name("");
+		contact[i].set_Nickname("");
+		contact[i].set_Phone_Number("");
+		contact[i].set_Darkest_Secret("");
 	}
-	while (contact[i].first_name.empty())
+	while (input.empty())
 	{
 		std::cout << "Awaiting input first_name" << std::endl;
-		if (std::getline(std::cin, contact[i].first_name).eof() != 0)
+		if (std::getline(std::cin, input).eof() != 0)
 			return ;
+		contact[i].set_First_Name(input);
 	}
-	while (contact[i].last_name.empty())
+	input.clear();
+	while (input.empty())
 	{
 		std::cout << "Awaiting input last_name" << std::endl;
-		if (std::getline(std::cin, contact[i].last_name).eof() != 0)
+		if (std::getline(std::cin, input).eof() != 0)
 			return ;
+		contact[i].set_Last_Name(input);
 	}
-	while (contact[i].nickname.empty())
+	input.clear();
+	while (input.empty())
 	{
 		std::cout << "Awaiting input nickname" << std::endl;
-		if (std::getline(std::cin, contact[i].nickname).eof() != 0)
+		if (std::getline(std::cin,input).eof() != 0)
 			return ;
+		contact[i].set_Nickname(input);
 	}
-	while (contact[i].phone_number.empty())
+	input.clear();
+	while (input.empty())
 	{
 		std::cout << "Awaiting input phone_number" << std::endl;
-		if (std::getline(std::cin, contact[i].phone_number).eof() != 0)
+		if (std::getline(std::cin, input).eof() != 0)
 			return ;
+		contact[i].set_Phone_Number(input);
 	}
-	while (contact[i].darkest_secret.empty())
+	input.clear();
+	while (input.empty())
 	{
 		std::cout << "Awaiting input darkest secret" << std::endl;
-		if (std::getline(std::cin, contact[i].darkest_secret).eof() != 0)
+		if (std::getline(std::cin, input).eof() != 0)
 			return ;
+		contact[i].set_Darkest_Secret(input);
 	}
 	return ;
 }
@@ -85,11 +91,11 @@ void	PhoneBook::print_index(Contact *contact, int len){
 	if (userinput.size() == 1 && userinput[0] > '0' && userinput[0] <= '8')
 	{
 		input = std::atoi(userinput.c_str());
-		std::cout << "First Name : " << contact[input].cpy_first_name << std::endl;
-		std::cout << "Last Name : "<< contact[input].cpy_last_name << std::endl;
-		std::cout << "Nickname : "<< contact[input].cpy_nickname << std::endl;
-		std::cout << "Phone Number : "<< contact[input].phone_number << std::endl;
-		std::cout << "Darkest Secret : "<< contact[input].darkest_secret << std::endl;
+		std::cout << "First Name : " << contact[input].get_First_Name() << std::endl;
+		std::cout << "Last Name : "<< contact[input].get_Last_Name() << std::endl;
+		std::cout << "Nickname : "<< contact[input].get_Nickname() << std::endl;
+		std::cout << "Phone Number : "<< contact[input].get_Phone_Number() << std::endl;
+		std::cout << "Darkest Secret : "<< contact[input].get_Darkest_Secret() << std::endl;
 	}
 	else
 	{
@@ -98,59 +104,26 @@ void	PhoneBook::print_index(Contact *contact, int len){
 	}
 }
 
+std::string	PhoneBook::format(std::string str)
+{
+	if(str.length() > 10)
+		return (str.substr(0, 9) + ".");
+	else
+		return (str);
+
+}
+
 void    PhoneBook::print_phonebook(Contact *contact, int len){
 	
 	int i;
-	size_t len_str;
 	i = 1;
-	std::cout << "    Index|First name| Last name|  Nickname" << std::endl;
+	std::cout << "     Index|First name| Last name|  Nickname" << std::endl;
     while(i <= 8)
 	{
-		contact[i].cpy_first_name = contact[i].first_name;
-		contact[i].cpy_last_name = contact[i].last_name;
-		contact[i].cpy_nickname = contact[i].nickname;
-		std::cout << "        ";
-		std::cout << i;
-		std::cout << "|";
-		len_str = contact[i].first_name.size();
-		while(len_str < 10)
-		{
-			std::cout << " ";
-			len_str++;
-		}
-		if (len_str > 10)
-		{
-			contact[i].first_name.resize(9);
-			contact[i].first_name.append(".");
-		}
-		std::cout << contact[i].first_name;
-		std::cout << "|";
-		len_str = contact[i].last_name.size();
-		while(len_str < 10)
-		{
-			std::cout << " ";
-			len_str++;
-		}
-		if (len_str > 10)
-		{
-			contact[i].last_name.resize(9);
-			contact[i].last_name.append(".");
-		}
-		std::cout << contact[i].last_name;
-		std::cout << "|";
-		len_str = contact[i].nickname.size();
-		while(len_str < 10)
-		{
-			std::cout << " ";
-			len_str++;
-		}
-		if (len_str > 10)
-		{
-			contact[i].nickname.resize(9);
-			contact[i].nickname.append(".");
-		}
-		std::cout << contact[i].nickname;
-		std::cout << std::endl;
+		std::cout << std::setw(10) << i << "|";
+		std::cout << std::setw(10) << format(contact[i].get_First_Name()) << "|";
+		std::cout << std::setw(10) << format(contact[i].get_Last_Name()) << "|";
+		std::cout << std::setw(10) << format(contact[i].get_Nickname()) << std::endl;	
 		i++;
   	}
 	print_index(contact, len);

@@ -20,18 +20,24 @@
 class Contact
 {
 private:
-
-public:
-    Contact(void);
-    ~Contact(void);
     std::string first_name;
     std::string last_name;
     std::string nickname;
     std::string phone_number;
     std::string darkest_secret;
-    std::string cpy_first_name;
-    std::string cpy_last_name;
-    std::string cpy_nickname;
+public:
+    Contact(void);
+    ~Contact(void);
+    void set_First_Name(std::string str);
+    void set_Last_Name(std::string str);
+    void set_Nickname(std::string str);
+    void set_Phone_Number(std::string str);
+    void set_Darkest_Secret(std::string str);
+    const std::string &get_First_Name() const;
+    const std::string &get_Last_Name() const;
+    const std::string &get_Nickname() const;
+    const std::string &get_Phone_Number() const;
+    const std::string &get_Darkest_Secret() const;
 };
 
 #endif

@@ -16,12 +16,10 @@
 int main()
 {
 	int	i;
-	int	len;
 	std::string userinput;
 	PhoneBook phonebook;
 	Contact contact[9];
 	i = 1;
-	len = 0;
 	while (1)
 	{
 		std::cout << "Awaiting input" << std::endl;

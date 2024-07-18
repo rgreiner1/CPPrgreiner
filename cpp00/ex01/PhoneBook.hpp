@@ -18,7 +18,7 @@
 #include "sstream"
 #include "cstdlib"
 #include "Contact.hpp"
-
+#include "iomanip"
 
 class PhoneBook
 {
@@ -30,6 +30,7 @@ public:
 	void	fill_info(Contact *contact, int i);
 	void	print_phonebook(Contact *contact, int len);
 	void	print_index(Contact *contact, int len);
+	std::string	format(std::string str);
 };
 
 #endif
