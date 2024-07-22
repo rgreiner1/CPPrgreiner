@@ -6,25 +6,28 @@
 /*   By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 14:24:33 by rgreiner          #+#    #+#             */
-/*   Updated: 2024/04/09 11:44:51 by rgreiner         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:25:29 by rgreiner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Animal.hpp"
-#include"Cat.hpp"
-#include"Dog.hpp"
+#include"AAnimal.hpp"
 
 AAnimal::AAnimal(){
-	std::cout << "Constructor called and created an Animal" << std::endl;
+	std::cout << "Constructor called and created an AAnimal" << std::endl;
+}
+
+AAnimal::AAnimal(std::string name){
+	std::cout << "Constructor called and created an AAnimal" << std::endl;
+	type = name;
 }
 
 AAnimal::~AAnimal(void){
-	std::cout << "Destructor called and destroyed an Animal" << std::endl;
+	std::cout << "Destructor called and destroyed an AAnimal" << std::endl;
 }
 
-AAnimal::AAnimal(const AAnimal& src){
+AAnimal::AAnimal(AAnimal& src){
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	this->type = src.type;
 }
 
 AAnimal	&AAnimal::operator=(const AAnimal &src){
@@ -35,4 +38,8 @@ AAnimal	&AAnimal::operator=(const AAnimal &src){
 
 std::string AAnimal::getType(void) const{
 	return(this->type);
+}
+
+void    AAnimal::makeSound(void) const{
+    std::cout << "This Aanimal can't do any noise" << std::endl;
 }

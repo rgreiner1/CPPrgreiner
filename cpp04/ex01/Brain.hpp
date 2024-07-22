@@ -24,7 +24,7 @@
 class Brain
 {
 private:
-    std::string ideas[99];
+    std::string ideas[100];
 public:
     Brain();
     ~Brain();

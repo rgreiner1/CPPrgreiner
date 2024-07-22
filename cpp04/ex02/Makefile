@@ -6,12 +6,12 @@
 #    By: rgreiner <rgreiner@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/08 14:24:51 by rgreiner          #+#    #+#              #
-#    Updated: 2024/04/10 14:36:19 by rgreiner         ###   ########.fr        #
+#    Updated: 2024/04/10 14:36:02 by rgreiner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS    =	main.cpp \
-			Animal.cpp \
+			AAnimal.cpp \
 			WrongAnimal.cpp \
 			WrongCat.cpp \
 			Brain.cpp \

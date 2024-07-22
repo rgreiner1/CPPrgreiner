@@ -12,11 +12,6 @@
 
 #ifndef CAT_H
 # define CAT_H
-#include "iostream"
-#include "string"
-#include "sstream"
-#include "cstdlib"
-#include "fstream"
 #include "Animal.hpp"
 
 class Cat : public Animal
@@ -26,8 +21,9 @@ private:
 public:
     Cat();
     ~Cat();
-    Cat(const Cat&);
+    Cat(const Cat& src);
     Cat &operator=(const Cat&src);
+    void    makeSound(void) const;
 };
 
 #endif

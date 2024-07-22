@@ -21,7 +21,7 @@ WrongCat::~WrongCat(void){
 	std::cout << "Destructor called and destroyed a WrongCat" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& src){
+WrongCat::WrongCat(const WrongCat& src) :WrongAnimal(src.getType()){
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
@@ -30,4 +30,7 @@ WrongCat	&WrongCat::operator=(const WrongCat &src){
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->type = src.type;
 	return *this;
+}
+void    WrongCat::makeSound(void) const{
+    std::cout << "Wrong meow" << std::endl;
 }

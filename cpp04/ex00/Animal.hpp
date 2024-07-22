@@ -24,11 +24,12 @@ protected:
     std::string type;
 public:
     Animal();
+    Animal(std::string name);
     virtual ~Animal();
-    Animal(const Animal&);
+    Animal(Animal &src);
     Animal &operator=(const Animal&src);
     std::string getType(void) const;
-    void    makeSound(void) const;
+    virtual void    makeSound(void) const;
 };
 
 #endif

@@ -30,7 +30,7 @@ Brain	&Brain::operator=(const Brain &src){
 	int i;
 
 	i = 0;
-	while(!src.ideas[i].empty())
+	while(i < 100)
 	{
 		this->ideas[i] = src.ideas[i];
 		i++;	

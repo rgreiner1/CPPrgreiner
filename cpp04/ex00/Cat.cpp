@@ -21,13 +21,17 @@ Cat::~Cat(void){
 	std::cout << "Destructor called and destroyed a Cat" << std::endl;
 }
 
-Cat::Cat(const Cat& src){
+Cat::Cat(const Cat& src) : Animal(src.getType()){
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Cat	&Cat::operator=(const Cat &src){
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->type = src.type;
+	this->type = src.getType();
 	return *this;
+}
+
+void Cat::makeSound() const{
+	std::cout << "Meow" << std::endl;
 }

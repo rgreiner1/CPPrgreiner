@@ -17,33 +17,35 @@
 #include"Dog.hpp"
 #include"Brain.hpp"
 
+int main() {
 
+    Animal *array[10];
+    Animal cpy1;
+    int i;
 
-int main(){
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;//should not create a leak
-    delete i;
-    
-    const Animal *array[9];
-    int l;
-
-    l = 0;
-    while(l < 5)
+    i = 0;
+    while(i < 5)
     {
-        array[l] = new Dog();
-        l++;
+        array[i] = new Dog();
+        i++;
     }
-    while (l < 10)
+    while (i <= 9)
     {
-        array[l] = new Cat();
-        l++;
+        array[i] = new Cat();
+        i++;
     }
-    l = 9;
-    while (l >= 0)
-    {
-        delete array[l];
-        l--;
-    }
-    return 0;
+    array[0]->makeSound();
+    array[4]->makeSound();
+    array[5]->makeSound();
+    array[9]->makeSound();
+    Animal copy;
+    Animal copy2(*array[1]);
+    copy = *array[0];
+    copy2.makeSound();
+    copy.makeSound();
+    for (int j = 0; j != i; j++)
+        delete array[j];
+    copy.makeSound();
+    copy2.makeSound();
+    return (0);
 }

@@ -22,13 +22,17 @@ Dog::~Dog(void){
 	std::cout << "Destructor called and destroyed a Dog" << std::endl;
 }
 
-Dog::Dog(const Dog& src){
+Dog::Dog(const Dog& src) :Animal(src.getType()){
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Dog	&Dog::operator=(const Dog &src){
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->type = src.type;
+	this->type = src.getType();
 	return *this;
+}
+
+void Dog::makeSound() const{
+	std::cout << "Woof" << std::endl;
 }
